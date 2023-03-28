@@ -3,7 +3,6 @@ import React from 'react'
 import { Pressable, ViewStyle } from 'react-native'
 
 import { convertPadding } from '../../../styles'
-
 import { RS, useTheme } from '../../../theme'
 
 import type { BoxProps } from './Box.type'
