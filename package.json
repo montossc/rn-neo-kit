@@ -33,7 +33,7 @@
     "prepack": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install"
+    "bootstrap": "cd example && yarn && cd ios && pod update"
   },
   "keywords": [
     "react-native",
@@ -76,8 +76,12 @@
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
+    "react-content-loader": "^6.2.1",
     "react-native": "0.71.4",
     "react-native-builder-bob": "^0.20.0",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-reanimated": "^3.0.2",
+    "react-native-svg": "^13.8.0",
     "release-it": "^15.0.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^4.5.2"
@@ -87,7 +91,10 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-content-loader": "^6.2.1",
+    "react-native": "*",
+    "react-native-fast-image": "^8.6.3",
+    "react-native-svg": "^13.8.0"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -130,9 +137,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "react-content-loader": "^6.2.1",
-    "react-native-svg": "^13.8.0"
   }
 }

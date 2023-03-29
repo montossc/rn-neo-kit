@@ -1,9 +1,5 @@
-import { Dimensions } from 'react-native'
+import { SCREEN_SIZE } from '../../../utils'
 
-export const SCREEN_SIZE = {
-  WIDTH: Dimensions.get('window').width,
-  HEIGHT: Dimensions.get('window').height,
-}
 const designBaseSize = {
   width: 375,
   height: 812,

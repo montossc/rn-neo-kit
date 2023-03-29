@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "rn-neo-kit": ["./src/index"]
+      "rn-neo-kit": ["./src/index"],
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

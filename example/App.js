@@ -1,11 +1,9 @@
 import React from 'react'
 
 import { View } from 'react-native'
-import { Box, NeoText } from 'rn-neo-kit'
+import { Box, NeoText, Badge, SizedBox, useTheme, Skeleton, SCREEN_SIZE, Avatar } from 'rn-neo-kit'
 
-import { Badge, SizedBox, useTheme } from '../src'
-import { Skeleton } from '../src/elements/Skeleton/Skeleton'
-import { SCREEN_SIZE } from '../src/theme/domain/utils/responsiveSize'
+import { NeoImage } from '../src'
 
 export const App = () => {
   const { colors } = useTheme()
@@ -19,6 +17,9 @@ export const App = () => {
       <Skeleton width={SCREEN_SIZE.WIDTH - 32} viewBoxWidth={SCREEN_SIZE.WIDTH} viewBoxHeight={100}>
         <Skeleton.Box height={50} width={200} x={20} y={20} />
       </Skeleton>
+      <SizedBox height={10} />
+      <Avatar source={{ uri: 'https://picsum.photos/200/300' }} size={20} title={'NP'} />
+      <NeoImage ratio={1.5} width={50} source={{ uri: 'https://picsum.photos/200/300' }} />
     </View>
   )
 }
