@@ -1,9 +1,19 @@
 import React from 'react'
 
 import { View } from 'react-native'
-import { Box, NeoText, Badge, SizedBox, useTheme, Skeleton, SCREEN_SIZE, Avatar } from 'rn-neo-kit'
-
-import { NeoImage } from '../src'
+import {
+  Box,
+  NeoText,
+  Badge,
+  SizedBox,
+  useTheme,
+  Skeleton,
+  SCREEN_SIZE,
+  Avatar,
+  NeoButton,
+  ButtonSize,
+  NeoImage,
+} from 'rn-neo-kit'
 
 export const App = () => {
   const { colors } = useTheme()
@@ -20,6 +30,11 @@ export const App = () => {
       <SizedBox height={10} />
       <Avatar source={{ uri: 'https://picsum.photos/200/300' }} size={20} title={'NP'} />
       <NeoImage ratio={1.5} width={50} source={{ uri: 'https://picsum.photos/200/300' }} />
+      <SizedBox height={10} />
+      <View style={{ alignItems: 'flex-start' }}>
+        <NeoButton title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
+      </View>
+      <NeoButton title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
     </View>
   )
 }
