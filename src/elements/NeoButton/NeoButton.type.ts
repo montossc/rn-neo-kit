@@ -1,4 +1,4 @@
-import type { PressableProps } from 'react-native'
+import type { ColorValue, PressableProps } from 'react-native'
 
 export enum ButtonType {
   primary = 'primary',
@@ -12,11 +12,11 @@ export enum ButtonSize {
   s = 's',
 }
 
-export interface ButtonProps extends PressableProps {
+export type ButtonProps = PressableProps & {
   type?: ButtonType
   size?: ButtonSize
   title: string
-  colors?: (string | number)[]
+  colors?: ColorValue[]
   loading?: boolean
   onPress: () => void
 }
