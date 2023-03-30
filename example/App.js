@@ -13,6 +13,7 @@ import {
   NeoButton,
   ButtonSize,
   NeoImage,
+  ButtonType,
 } from 'rn-neo-kit'
 
 export const App = () => {
@@ -20,8 +21,12 @@ export const App = () => {
   return (
     <View style={{ flex: 1, backgroundColor: colors.background, justifyContent: 'center', paddingHorizontal: 16 }}>
       <Box>
-        <NeoText>Box Demo</NeoText>
+        <NeoText>Box Gradient Demo</NeoText>
         <Badge disabled={false} value={'10'} boxProps={{ style: { position: 'absolute' } }} />
+      </Box>
+      <SizedBox height={10} />
+      <Box>
+        <NeoText>Box Demo</NeoText>
       </Box>
       <SizedBox height={10} />
       <Skeleton width={SCREEN_SIZE.WIDTH - 32} viewBoxWidth={SCREEN_SIZE.WIDTH} viewBoxHeight={100}>
@@ -34,7 +39,8 @@ export const App = () => {
       <View style={{ alignItems: 'flex-start' }}>
         <NeoButton title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
       </View>
-      <NeoButton title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
+      <NeoButton type={ButtonType.secondary} title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
+      <NeoButton type={ButtonType.text} title={'Demo Button'} onPress={() => {}} size={ButtonSize.m} />
     </View>
   )
 }

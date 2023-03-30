@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { Pressable, ViewStyle } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 
 import { convertPadding } from '../../../styles'
 import { RS, useTheme } from '../../../theme'
@@ -18,21 +19,33 @@ export const Box = ({
   style,
 }: BoxProps) => {
   const { colors } = useTheme()
+
+  const _backgroundColors: string[] = useMemo(() => {
+    if (Array.isArray(backgroundColor)) {
+      return backgroundColor as string[]
+    }
+    if (!backgroundColor) {
+      return [colors.background, colors.background] as string[]
+    }
+    return [backgroundColor, backgroundColor] as string[]
+  }, [backgroundColor])
+
   return (
-    <Pressable
+    <LinearGradient
       style={[
         convertPadding(padding),
         {
           borderWidth: RS.h(borderWidth),
           borderColor: borderColor || colors.border.primary,
           borderRadius: RS.h(radius),
-          backgroundColor: backgroundColor || colors.background,
         },
         style as ViewStyle,
       ]}
-      onPress={onPress}
+      colors={_backgroundColors}
+      start={{ x: 1, y: 0 }}
+      end={{ x: 0, y: 1 }}
     >
-      {children}
-    </Pressable>
+      <Pressable onPress={onPress}>{children}</Pressable>
+    </LinearGradient>
   )
 }

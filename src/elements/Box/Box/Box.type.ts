@@ -2,11 +2,11 @@ import type { ColorValue, PressableProps } from 'react-native'
 
 import type { Padding } from '../../../styles'
 
-export interface BoxProps extends PressableProps {
+export type BoxProps = PressableProps & {
   padding?: Padding
   borderWidth?: number
   borderColor?: ColorValue
   radius?: number
-  backgroundColor?: ColorValue
+  backgroundColor?: ColorValue | ColorValue[]
   onPress?: () => void
 }
