@@ -21,6 +21,7 @@ module.exports = {
     //import
     'imports-first': 0,
     'import/extensions': 0,
+    'import/no-unused-modules': 2,
     'import/order': [
       2,
       {

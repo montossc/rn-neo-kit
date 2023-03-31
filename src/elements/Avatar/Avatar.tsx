@@ -32,6 +32,8 @@ export const Avatar = ({
         type={typography.h2_semiBold}
         style={{
           textAlign: 'center',
+          fontSize: RS.h(size) / 2 - 6,
+          lineHeight: RS.h(size) / 2,
         }}
       >
         {title || ''}

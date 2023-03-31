@@ -18,7 +18,7 @@ export const NeoButton = ({
 }: ButtonProps) => {
   const { colors: themeColors } = useTheme()
 
-  const _getBackgroundColors = (isPressing: boolean) => {
+  const _buttonBorderColor = (isPressing: boolean) => {
     if (disabled) {
       switch (type) {
         case ButtonType.primary:
@@ -55,12 +55,6 @@ export const NeoButton = ({
     }
     return null
   }
-  const _containerStyle = (isPressing: boolean) => [
-    ContainerStyle.row,
-    styles.container,
-    styles[`${size!}Container`],
-    _innerBackgroundStyle(isPressing),
-  ]
 
   const _textColor = (isPressing: boolean) => {
     if (disabled) {
@@ -75,10 +69,17 @@ export const NeoButton = ({
     }
   }
 
+  const _containerStyle = (isPressing: boolean) => [
+    ContainerStyle.row,
+    styles.container,
+    styles[`${size!}Container`],
+    _innerBackgroundStyle(isPressing),
+  ]
+
   return (
     <Pressable pointerEvents={'box-only'} disabled={disabled || loading} onPress={onPress} {...props}>
       {({ pressed }) => (
-        <Box style={styles.container} backgroundColor={_getBackgroundColors(pressed)} padding={0} borderWidth={0}>
+        <Box style={styles.container} backgroundColor={_buttonBorderColor(pressed)} padding={0} borderWidth={0}>
           <View style={_containerStyle(pressed)}>
             {loading ? (
               <ActivityIndicator size={'small'} color={_textColor(pressed)} />

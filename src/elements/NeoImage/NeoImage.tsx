@@ -50,7 +50,7 @@ export const NeoImage = ({
     if (!height) {
       return {
         width: RS.h(width!),
-        height: (ratio * RS.h(width!)) as ResponsiveSize,
+        height: (RS.h(width!) / ratio) as ResponsiveSize,
       }
     }
     if (!width) {
