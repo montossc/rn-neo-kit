@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 
-import { ScrollView, StyleSheet, View } from 'react-native'
-import { ButtonType, NeoButton, ButtonSize, useTheme, ContainerStyle } from 'rn-neo-kit'
+import { ScrollView, StyleSheet } from 'react-native'
+import { ButtonType, NeoButton, ButtonSize, useTheme, Row } from 'rn-neo-kit'
 
 import { RadioActive } from '../../assets/icons'
 
@@ -16,18 +16,18 @@ export const ButtonScreen = () => {
       contentContainerStyle={styles.container}
       bounces={false}
     >
-      <View style={[ContainerStyle.row, { gap: 8, flexWrap: 'wrap' }]}>
+      <Row spacing={8} style={{ flexWrap: 'wrap' }}>
         <NeoButton title={'S Primary'} onPress={() => {}} size={ButtonSize.s} />
         <NeoButton title={'M Primary'} onPress={() => {}} size={ButtonSize.m} />
         <NeoButton title={'L Primary'} onPress={() => {}} size={ButtonSize.l} />
         <NeoButton title={'Icon'} onPress={() => {}} LeftComponent={LeftButtonIcon} RightComponent={RightButtonIcon} />
-      </View>
-      <View style={[ContainerStyle.row, { gap: 8, flexWrap: 'wrap' }]}>
+      </Row>
+      <Row spacing={8} style={{ flexWrap: 'wrap' }}>
         <NeoButton title={'Primary Disabled'} onPress={() => {}} size={ButtonSize.m} disabled />
         <NeoButton title={'Primary Loading'} onPress={() => {}} size={ButtonSize.m} loading />
         <NeoButton title={'Primary Disabled Loading'} onPress={() => {}} size={ButtonSize.m} loading disabled />
-      </View>
-      <View style={[ContainerStyle.row, { gap: 8, flexWrap: 'wrap' }]}>
+      </Row>
+      <Row spacing={8} style={{ flexWrap: 'wrap' }}>
         <NeoButton title={'Secondary'} type={ButtonType.secondary} onPress={() => {}} />
         <NeoButton title={'Secondary Disabled'} type={ButtonType.secondary} disabled onPress={() => {}} />
         <NeoButton title={'Secondary Loading'} type={ButtonType.secondary} loading onPress={() => {}} />
@@ -38,13 +38,13 @@ export const ButtonScreen = () => {
           disabled
           onPress={() => {}}
         />
-      </View>
-      <View style={[ContainerStyle.row, { gap: 8, flexWrap: 'wrap' }]}>
+      </Row>
+      <Row spacing={8} style={{ flexWrap: 'wrap' }}>
         <NeoButton title={'Text'} type={ButtonType.text} onPress={() => {}} />
         <NeoButton title={'Text Disabled'} type={ButtonType.text} disabled onPress={() => {}} />
         <NeoButton title={'Text Loading'} type={ButtonType.text} loading onPress={() => {}} />
         <NeoButton title={'Text Disabled Loading'} type={ButtonType.secondary} loading disabled onPress={() => {}} />
-      </View>
+      </Row>
     </ScrollView>
   )
 }

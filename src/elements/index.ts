@@ -17,6 +17,7 @@ export type { NeoTextProps } from './NeoText/NeoText.type'
 export { Skeleton } from './Skeleton/Skeleton'
 export type { SkeletonProps } from './Skeleton/Skeleton.type'
 export * from './Toggle'
+export * from './ContainerView'
 
 export type CustomComponent<T> = (props: T) => JSX.Element
 export type NeoIconType = ReturnType<CustomComponent<SvgProps>>
