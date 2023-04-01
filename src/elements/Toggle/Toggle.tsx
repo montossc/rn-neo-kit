@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 
 import { Pressable, View } from 'react-native'
 import type { SvgProps } from 'react-native-svg'
@@ -72,7 +72,7 @@ export const Toggle = ({
     return InActiveIcon || defaultIcon?.InActiveIcon!
   }, [type, disabled, checked])
 
-  const getIconColor = () => {
+  const getIconColor = useCallback(() => {
     if (disabled) {
       if (checked) {
         return disabledActiveColor || colors.secondary
@@ -83,9 +83,9 @@ export const Toggle = ({
       return activeColor || colors.toggle.active
     }
     return inactiveColor || colors.toggle.inactive
-  }
+  }, [disabled, checked, disabledActiveColor, disableInactiveColor, activeColor, inactiveColor, colors])
 
-  const renderTitle = () => {
+  const renderTitle = useMemo(() => {
     if (children) {
       return (
         <>
@@ -114,7 +114,7 @@ export const Toggle = ({
       )
     }
     return null
-  }
+  }, [children, title, description, colors, titleStyle, descriptionStyle])
 
   return (
     <Pressable
@@ -148,7 +148,7 @@ export const Toggle = ({
           checked={checked}
         />
       )}
-      {renderTitle()}
+      {renderTitle}
     </Pressable>
   )
 }

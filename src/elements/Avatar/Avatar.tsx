@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { StyleSheet, View } from 'react-native'
 import FastImage from 'react-native-fast-image'
@@ -17,29 +17,33 @@ export const Avatar = ({
 }: AvatarProps) => {
   const { colors } = useTheme()
 
-  const DefaultAvatar = title && (
-    <View
-      style={[
-        {
-          backgroundColor: colors.button.disabled,
-          borderRadius: RS.h(size) / 2,
-          width: RS.h(size),
-          height: RS.h(size),
-        },
-        styles.defaultContainer,
-      ]}
-    >
-      <NeoText
-        type={typography.h2_semiBold}
-        style={{
-          textAlign: 'center',
-          fontSize: RS.h(size) / 2 - 6,
-          lineHeight: RS.h(size) / 2,
-        }}
-      >
-        {title || ''}
-      </NeoText>
-    </View>
+  const DefaultAvatar = useMemo(
+    () =>
+      title && (
+        <View
+          style={[
+            {
+              backgroundColor: colors.button.disabled,
+              borderRadius: RS.h(size) / 2,
+              width: RS.h(size),
+              height: RS.h(size),
+            },
+            styles.defaultContainer,
+          ]}
+        >
+          <NeoText
+            type={typography.h2_semiBold}
+            style={{
+              textAlign: 'center',
+              fontSize: RS.h(size) / 2 - 6,
+              lineHeight: RS.h(size) / 2,
+            }}
+          >
+            {title || ''}
+          </NeoText>
+        </View>
+      ),
+    [title, colors, size]
   )
 
   return (
