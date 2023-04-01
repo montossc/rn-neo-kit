@@ -4,3 +4,5 @@ export const SCREEN_SIZE = {
   WIDTH: Dimensions.get('window').width,
   HEIGHT: Dimensions.get('window').height,
 }
+
+export type MetricValue = number | string

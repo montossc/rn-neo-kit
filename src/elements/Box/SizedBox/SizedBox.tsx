@@ -2,7 +2,8 @@ import React from 'react'
 
 import { View } from 'react-native'
 
-import { RS, useTheme } from '../../../theme'
+import { useTheme } from '../../../theme'
+import { RS } from '../../../utils'
 
 import type { SizedBoxProps } from './SizedBox.type'
 

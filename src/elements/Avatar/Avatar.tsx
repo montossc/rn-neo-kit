@@ -5,7 +5,7 @@ import FastImage from 'react-native-fast-image'
 
 import type { AvatarProps } from './Avatar.type'
 
-import { NeoImage, NeoText, RS, typography, useTheme } from 'rn-neo-kit'
+import { MetricValue, NeoImage, NeoText, RS, typography, useTheme } from 'rn-neo-kit'
 
 export const Avatar = ({
   size,
@@ -13,9 +13,10 @@ export const Avatar = ({
   resizeMode = FastImage.resizeMode.cover,
   title,
   FallbackComponent,
-  ...props
+  ...neoImageProps
 }: AvatarProps) => {
   const { colors } = useTheme()
+
   const DefaultAvatar = title && (
     <View
       style={[
@@ -40,14 +41,16 @@ export const Avatar = ({
       </NeoText>
     </View>
   )
+
   return (
     <NeoImage
       ratio={ratio}
-      width={size}
       radius={RS.h(size) / 2}
       resizeMode={resizeMode}
       FallbackComponent={FallbackComponent || DefaultAvatar}
-      {...props}
+      width={size as MetricValue}
+      height={size as MetricValue}
+      {...neoImageProps}
     />
   )
 }

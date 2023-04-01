@@ -1,6 +1,10 @@
-type InsetSymmetric = { horizontal?: number; vertical: number } | { horizontal: number; vertical?: number }
-type InsetOnly = { top: number; bottom: number; left: number; right: number }
+import type { MetricValue } from '../../utils'
 
-export type WidthOrHeight = { width: number; height?: number } | { width?: number; height: number }
-export type Padding = number | InsetSymmetric | InsetOnly
-export type Margin = number | InsetSymmetric | InsetOnly
+type InsetSymmetric =
+  | { horizontal?: MetricValue; vertical: MetricValue }
+  | { horizontal: MetricValue; vertical?: MetricValue }
+type InsetOnly = { top: MetricValue; bottom: MetricValue; left: MetricValue; right: MetricValue }
+
+export type WidthOrHeight = { width: MetricValue; height?: MetricValue } | { width?: MetricValue; height: MetricValue }
+export type Padding = MetricValue | InsetSymmetric | InsetOnly
+export type Margin = MetricValue | InsetSymmetric | InsetOnly

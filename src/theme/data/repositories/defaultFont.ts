@@ -1,4 +1,4 @@
-import { RS } from '../../domain/utils/responsiveSize'
+import { RS } from '../../../utils'
 import type { FontFamily, Fonts, FontSize } from '../models/font.type'
 
 type CreateFontProps<T extends string> = {

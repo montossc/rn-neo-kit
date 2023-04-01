@@ -4,7 +4,8 @@ import { Pressable, ViewStyle } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
 import { convertPadding } from '../../../styles'
-import { RS, useTheme } from '../../../theme'
+import { useTheme } from '../../../theme'
+import { RS } from '../../../utils'
 
 import type { BoxProps } from './Box.type'
 
@@ -17,6 +18,7 @@ export const Box = ({
   children,
   onPress,
   style,
+  ...pressableProps
 }: BoxProps) => {
   const { colors } = useTheme()
 
@@ -44,8 +46,11 @@ export const Box = ({
       colors={_backgroundColors}
       start={{ x: 1, y: 0 }}
       end={{ x: 0, y: 1 }}
+      pointerEvents={'box-none'}
     >
-      <Pressable onPress={onPress}>{children}</Pressable>
+      <Pressable onPress={onPress} {...pressableProps}>
+        {children}
+      </Pressable>
     </LinearGradient>
   )
 }

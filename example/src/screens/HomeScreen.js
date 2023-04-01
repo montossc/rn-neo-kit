@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { View, StyleSheet, ScrollView } from 'react-native'
-import { Box, NeoText, Badge, useTheme, Skeleton, SCREEN_SIZE, Avatar, NeoButton, ButtonSize } from 'rn-neo-kit'
+import { Box, NeoText, Badge, useTheme, Skeleton, SCREEN_SIZE, Avatar, NeoButton } from 'rn-neo-kit'
 
 export const HomeScreen = ({ navigation }) => {
   const { colors } = useTheme()
@@ -29,14 +29,18 @@ export const HomeScreen = ({ navigation }) => {
         onPress={() => {
           navigation.navigate('ButtonScreen')
         }}
-        size={ButtonSize.m}
       />
       <NeoButton
         title={'Demo Image Screen'}
         onPress={() => {
           navigation.navigate('ImageScreen')
         }}
-        size={ButtonSize.m}
+      />
+      <NeoButton
+        title={'Demo Toggle Screen'}
+        onPress={() => {
+          navigation.navigate('ToggleScreen')
+        }}
       />
     </ScrollView>
   )

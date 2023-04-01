@@ -47,16 +47,16 @@ export const NeoImage = ({
   }
 
   const _imageSize: { width: ResponsiveSize; height: ResponsiveSize } = useMemo(() => {
-    if (!height) {
+    if (width) {
       return {
-        width: RS.h(width!),
-        height: (RS.h(width!) / ratio) as ResponsiveSize,
+        width: RS.h(width as number),
+        height: (RS.h(width as number) / ratio) as ResponsiveSize,
       }
     }
-    if (!width) {
+    if (height) {
       return {
-        height: RS.v(height!),
-        width: (ratio * RS.v(height!)) as ResponsiveSize,
+        height: RS.v(height as number),
+        width: (ratio * RS.v(height as number)) as ResponsiveSize,
       }
     }
     return {
@@ -64,6 +64,7 @@ export const NeoImage = ({
       height: RS.h(0),
     }
   }, [width, height, ratio])
+
   return (
     <Pressable onPress={onPress}>
       <FastImage

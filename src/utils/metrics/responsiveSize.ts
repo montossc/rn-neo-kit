@@ -1,4 +1,4 @@
-import { SCREEN_SIZE } from '../../../utils'
+import { SCREEN_SIZE } from '../index'
 
 const designBaseSize = {
   width: 375,
