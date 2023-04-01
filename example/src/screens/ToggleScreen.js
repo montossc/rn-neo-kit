@@ -64,6 +64,80 @@ export const ToggleScreen = () => {
           <NeoText>Custom all label</NeoText>
         </Toggle>
       </View>
+      <View style={[ContainerStyle.row, { gap: 12, flexWrap: 'wrap' }]}>
+        <Toggle checked={checked} onPress={() => setChecked(prev => !prev)} type={'select_box'} title={'Select Box'} />
+        <Toggle
+          checked={checked}
+          disabled
+          onPress={() => setChecked(prev => !prev)}
+          type={'select_box'}
+          title={'Select Box'}
+          description={'Disabled'}
+        />
+        <Toggle
+          checked={checked}
+          reversed
+          onPress={() => setChecked(prev => !prev)}
+          type={'select_box'}
+          title={'Select Box'}
+          description={'Reversed'}
+        />
+      </View>
+      <View style={[ContainerStyle.row, { gap: 12, flexWrap: 'wrap' }]}>
+        <Toggle checked={checked} onPress={() => setChecked(prev => !prev)} type={'switch'} title={'Switch'} />
+        <Toggle
+          checked={checked}
+          disabled
+          onPress={() => setChecked(prev => !prev)}
+          type={'switch'}
+          title={'Switch'}
+          description={'Disabled'}
+        />
+        <Toggle
+          checked={checked}
+          reversed
+          onPress={() => setChecked(prev => !prev)}
+          type={'switch'}
+          title={'Switch'}
+          description={'Reversed'}
+        />
+      </View>
+      <View style={[ContainerStyle.row, { gap: 12, flexWrap: 'wrap' }]}>
+        <Toggle
+          checked={checked}
+          onPress={() => setChecked(prev => !prev)}
+          type={'custom'}
+          title={'Custom'}
+          ActiveIcon={ActiveIcon}
+          InActiveIcon={InActiveIcon}
+          ActiveDisabledIcon={ActiveIcon}
+          InActiveDisabledIcon={ActiveIcon}
+        />
+        <Toggle
+          checked={checked}
+          disabled
+          onPress={() => setChecked(prev => !prev)}
+          type={'custom'}
+          title={'Custom'}
+          description={'Disabled'}
+          ActiveIcon={ActiveIcon}
+          InActiveIcon={InActiveIcon}
+          ActiveDisabledIcon={ActiveIcon}
+          InActiveDisabledIcon={ActiveIcon}
+        />
+        <Toggle
+          checked={checked}
+          reversed
+          onPress={() => setChecked(prev => !prev)}
+          type={'custom'}
+          title={'Custom'}
+          description={'Reversed'}
+          ActiveIcon={ActiveIcon}
+          InActiveIcon={InActiveIcon}
+          ActiveDisabledIcon={ActiveIcon}
+          InActiveDisabledIcon={ActiveIcon}
+        />
+      </View>
     </ScrollView>
   )
 }
