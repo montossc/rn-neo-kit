@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 import { ScrollView, StyleSheet, View } from 'react-native'
-import { ButtonType, NeoButton, ButtonSize, useTheme } from 'rn-neo-kit'
+import { ButtonType, NeoButton, ButtonSize, useTheme, ContainerStyle } from 'rn-neo-kit'
 
-import { ContainerStyle } from '../../../src'
+import { RadioActive } from '../../assets/icons'
 
 export const ButtonScreen = () => {
   const { colors } = useTheme()
+
+  const LeftButtonIcon = useCallback(({ size, color }) => <RadioActive width={size} height={size} color={color} />, [])
+  const RightButtonIcon = useCallback(({ size, color }) => <RadioActive width={size} height={size} color={color} />, [])
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: colors.background }}
@@ -17,6 +20,7 @@ export const ButtonScreen = () => {
         <NeoButton title={'S Primary'} onPress={() => {}} size={ButtonSize.s} />
         <NeoButton title={'M Primary'} onPress={() => {}} size={ButtonSize.m} />
         <NeoButton title={'L Primary'} onPress={() => {}} size={ButtonSize.l} />
+        <NeoButton title={'Icon'} onPress={() => {}} LeftComponent={LeftButtonIcon} RightComponent={RightButtonIcon} />
       </View>
       <View style={[ContainerStyle.row, { gap: 8, flexWrap: 'wrap' }]}>
         <NeoButton title={'Primary Disabled'} onPress={() => {}} size={ButtonSize.m} disabled />

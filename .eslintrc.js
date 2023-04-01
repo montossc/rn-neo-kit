@@ -17,6 +17,7 @@ module.exports = {
     'react-native/no-unused-styles': 2,
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 0,
+    'react/no-unstable-nested-components': 2,
 
     //import
     'imports-first': 0,

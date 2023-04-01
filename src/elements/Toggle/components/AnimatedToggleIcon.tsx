@@ -1,16 +1,10 @@
 import React, { useEffect } from 'react'
 
 import Animated, { useAnimatedStyle, useSharedValue, withSequence, withTiming } from 'react-native-reanimated'
-import type { SvgProps } from 'react-native-svg'
 
-export const AnimatedToggleIcon = ({
-  width,
-  height,
-  color,
-  stroke,
-  icon,
-  checked,
-}: SvgProps & { icon: (iconProp: SvgProps) => JSX.Element; checked: boolean }) => {
+import type { NeoIconType } from 'rn-neo-kit'
+
+export const AnimatedToggleIcon = ({ icon, checked }: { icon: NeoIconType; checked: boolean }) => {
   const animatedCheck = useSharedValue<number>(1)
   useEffect(() => {
     animatedCheck.value = withSequence(
@@ -25,5 +19,5 @@ export const AnimatedToggleIcon = ({
     opacity: animatedCheck.value,
   }))
 
-  return <Animated.View style={animatedStyle}>{icon({ width, height, color, stroke })}</Animated.View>
+  return <Animated.View style={animatedStyle}>{icon}</Animated.View>
 }

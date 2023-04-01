@@ -11,9 +11,11 @@ export const NeoButton = ({
   colors,
   size = ButtonSize.m,
   type = ButtonType.primary,
-  disabled,
-  loading,
+  disabled = false,
+  loading = false,
   onPress,
+  LeftComponent,
+  RightComponent,
   ...props
 }: ButtonProps) => {
   const { colors: themeColors } = useTheme()
@@ -77,17 +79,31 @@ export const NeoButton = ({
   ]
 
   return (
-    <Pressable pointerEvents={'box-only'} disabled={disabled || loading} onPress={onPress} {...props}>
+    <Pressable disabled={disabled || loading} onPress={onPress}>
       {({ pressed }) => (
-        <Box style={styles.container} backgroundColor={_buttonBorderColor(pressed)} padding={0} borderWidth={0}>
-          <View style={_containerStyle(pressed)}>
+        <Box
+          style={styles.container}
+          backgroundColor={_buttonBorderColor(pressed)}
+          padding={0}
+          borderWidth={0}
+          pointerEvents={'box-none'}
+          {...props}
+        >
+          <View style={_containerStyle(pressed)} pointerEvents={'box-none'}>
+            {LeftComponent?.({ color: _textColor(pressed), size: RS.v(24) })}
             {loading ? (
               <ActivityIndicator size={'small'} color={_textColor(pressed)} />
             ) : (
-              <NeoText type={typography.button_medium} color={_textColor(pressed)} style={styles.title}>
+              <NeoText
+                pointerEvents={'none'}
+                type={typography.button_medium}
+                color={_textColor(pressed)}
+                style={styles.title}
+              >
                 {title}
               </NeoText>
             )}
+            {RightComponent?.({ color: _textColor(pressed), size: RS.v(24) })}
           </View>
         </Box>
       )}
@@ -99,6 +115,7 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: RS.h(32),
     justifyContent: 'center',
+    gap: RS.h(8),
   },
   // eslint-disable-next-line react-native/no-unused-styles
   lContainer: {
@@ -118,5 +135,5 @@ const styles = StyleSheet.create({
     paddingVertical: RS.v(12),
     paddingHorizontal: RS.h(12),
   },
-  title: { flexGrow: 1, textAlign: 'center' },
+  title: { textAlign: 'center' },
 })

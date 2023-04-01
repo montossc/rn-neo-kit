@@ -1,5 +1,8 @@
 import type { ColorValue, PressableProps } from 'react-native'
 
+import type { ResponsiveSize } from '../../utils/metrics'
+import type { CustomComponent } from '../index'
+
 export enum ButtonType {
   primary = 'primary',
   secondary = 'secondary',
@@ -12,6 +15,10 @@ export enum ButtonSize {
   s = 's',
 }
 
+type CustomComponentProps = {
+  color: ColorValue
+  size: ResponsiveSize
+}
 export type ButtonProps = PressableProps & {
   type?: ButtonType
   size?: ButtonSize
@@ -19,4 +26,6 @@ export type ButtonProps = PressableProps & {
   colors?: ColorValue[]
   loading?: boolean
   onPress: () => void
+  LeftComponent?: CustomComponent<CustomComponentProps>
+  RightComponent?: CustomComponent<CustomComponentProps>
 }

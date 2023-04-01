@@ -1,13 +1,14 @@
-import React, { useCallback } from 'react'
+import React, { useMemo } from 'react'
 
 import { Pressable, View } from 'react-native'
+import type { SvgProps } from 'react-native-svg'
 
 import * as ToggleIcons from './assets/icons'
 import { AnimatedToggleIcon } from './components/AnimatedToggleIcon'
 import { Switcher } from './Switcher'
 import type { ToggleProps } from './Toggle.type'
 
-import { ContainerStyle, NeoIconType, NeoText, RS, SizedBox, typography, useTheme } from 'rn-neo-kit'
+import { ContainerStyle, CustomComponent, NeoText, RS, SizedBox, typography, useTheme } from 'rn-neo-kit'
 
 export const Toggle = ({
   type,
@@ -37,7 +38,7 @@ export const Toggle = ({
     onPress?.()
   }
 
-  const IconComponent = useCallback((): NeoIconType => {
+  const IconComponent = useMemo((): CustomComponent<SvgProps> => {
     const defaultIcon = (() => {
       switch (type) {
         case 'radio':
@@ -119,7 +120,12 @@ export const Toggle = ({
     <Pressable
       onPress={handlePress}
       disabled={disabled}
-      style={[ContainerStyle.spaceBetweenRow, reversed && { flexDirection: 'row-reverse' }, containerStyle]}
+      style={[
+        ContainerStyle.spaceBetweenRow,
+        // eslint-disable-next-line react-native/no-inline-styles
+        reversed && { flexDirection: 'row-reverse' },
+        containerStyle,
+      ]}
     >
       {type === 'switch' ? (
         <Switcher
@@ -133,11 +139,12 @@ export const Toggle = ({
         />
       ) : (
         <AnimatedToggleIcon
-          icon={IconComponent()}
-          width={RS.h(iconSize)}
-          height={RS.h(iconSize)}
-          color={getIconColor()}
-          stroke={colors.background}
+          icon={IconComponent({
+            width: RS.h(iconSize),
+            height: RS.h(iconSize),
+            color: getIconColor(),
+            stroke: colors.background,
+          })}
           checked={checked}
         />
       )}

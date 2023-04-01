@@ -3,7 +3,9 @@ import type { ReactNode } from 'react'
 import type { ColorValue, TextStyle, ViewStyle, StyleProp } from 'react-native'
 import type { SvgProps } from 'react-native-svg'
 
-type CustomToggleIcon = (props: Pick<SvgProps, 'width' | 'height' | 'color'>) => JSX.Element
+import type { CustomComponent } from '../index'
+
+type CustomToggleIcon = CustomComponent<Pick<SvgProps, 'width' | 'height' | 'color'>>
 
 type CommonProps = {
   checked: boolean
